@@ -1,5 +1,6 @@
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class floating : MonoBehaviour
 {
@@ -18,12 +19,13 @@ public class floating : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        itemdepth = transform.position.y - waterlevel; 
+        itemdepth = transform.position.y - waterlevel;
         //under water
         if (transform.position.y < waterlevel)
         {
             UnityEngine.Vector3 buoyanceforce = UnityEngine.Vector3.up * buoyancy * -itemdepth;
             rb.AddForce(buoyanceforce - rb.linearVelocity * resistance, ForceMode.Acceleration);
+
         }
     }
 }
